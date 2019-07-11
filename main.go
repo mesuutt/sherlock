@@ -15,7 +15,7 @@ func main() {
 		Use:     "sherlock",
 		Short:   "Find usernames across social networks",
 		Args:    cobra.MinimumNArgs(1),
-		Example: "sherlock mesuutt",
+		Example: "sherlock user123",
 		Run: func(cmd *cobra.Command, args []string) {
 			showBanner()
 			username := args[0]
