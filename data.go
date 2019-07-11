@@ -3,8 +3,7 @@ package main
 var sites = []Site{
 	Site{
 		name:       "500px",
-		errorMsg:   "Oops! This page doesn\u2019t exist.",
-		checkBy:    "page_content",
+		checkBy:    "status_code",
 		rank:       3198,
 		profileUrl: "https://500px.com/%s",
 		mainUrl:    "https://500px.com/",
