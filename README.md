@@ -8,6 +8,8 @@
 
 </p>
 
+===
+
 Faster alternative of [sherlock-project/sherlock](https://github.com/sherlock-project/sherlock) written in Go.
 
 
@@ -39,6 +41,11 @@ Flags:
   -h, --help         help for sharlock
   -i, --only-found   Prints only found messages. Errors, and invalid username errors will not appear.
 ```
+
+## TODO:
+
+- [ ] Write tests
+
 
 ## License
 
