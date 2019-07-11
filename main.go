@@ -35,7 +35,7 @@ func main() {
 		if c.failed {
 			fmt.Printf("[%s] %s: %s (%s)\n", boldCyan("?"), boldCyan(c.site.name), c.ProfileUrl(), cyan("Check failed"))
 		} else {
-			if c.isFound {
+			if c.found {
 				fmt.Printf("[%s] %s: %s\n", bolGreen("+"), bolGreen(c.site.name), c.ProfileUrl())
 			} else {
 				fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldRed(c.site.name), c.ProfileUrl())
@@ -57,7 +57,7 @@ func checkSite(check *Check, wg *sync.WaitGroup, resultCh chan Check) {
 
 	defer resp.Body.Close()
 	if check.site.checkBy == "status_code" {
-		check.isFound = resp.StatusCode == 200
+		check.found = resp.StatusCode == 200
 		resultCh <- *check
 		return
 	}
@@ -70,6 +70,6 @@ func checkSite(check *Check, wg *sync.WaitGroup, resultCh chan Check) {
 		return
 	}
 
-	check.isFound = !strings.Contains(string(body), check.site.errorMsg)
+	check.found = !strings.Contains(string(body), check.site.errorMsg)
 	resultCh <- *check
 }

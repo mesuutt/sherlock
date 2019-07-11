@@ -14,7 +14,7 @@ type Site struct {
 type Check struct {
 	site     *Site
 	username string
-	isFound  bool
+	found    bool
 	failed   bool // Keeps check is success or not
 }
 
