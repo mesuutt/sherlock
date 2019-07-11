@@ -12,17 +12,17 @@ func main() {
 	var filterOnlyFounds bool
 
 	var rootCmd = &cobra.Command{
-		Use:     "sharlock",
+		Use:     "sherlock",
 		Short:   "Find usernames across social networks",
 		Args:    cobra.MinimumNArgs(1),
 		Example: "sherlock mesuutt",
 		Run: func(cmd *cobra.Command, args []string) {
+			showBanner()
 			username := args[0]
 			checker := newChecker(username, &sites)
 			go checker.Check()
 
-			cyan := color.New(color.FgCyan).SprintFunc()
-			boldCyan := color.New(color.FgCyan).Add(color.Bold).SprintFunc()
+			red := color.New(color.FgRed).SprintFunc()
 			boldRed := color.New(color.FgRed).Add(color.Bold).SprintFunc()
 			boldGreen := color.New(color.FgGreen).Add(color.Bold).SprintFunc()
 			boldWhite := color.New(color.FgWhite).Add(color.Bold).SprintFunc()
@@ -44,20 +44,20 @@ func main() {
 				}
 
 				if c.failed {
-					fmt.Printf("[%s] %s: %s (%s)\n", boldCyan("?"), boldCyan(c.site.name), c.ProfileUrl(), cyan("Check failed"))
+					fmt.Printf("[%s] %s: %s (%s)\n", boldRed("?"), boldRed(c.site.name), c.ProfileUrl(), red("Check failed"))
 				} else {
 					if c.found {
 						fmt.Printf("[%s] %s: %s\n", boldGreen("+"), boldGreen(c.site.name), c.ProfileUrl())
 					} else {
-						fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldRed(c.site.name), boldYellow("Not Found!"))
+						fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldGreen(c.site.name), boldYellow("Not Found!"))
 					}
 				}
 			}
 		},
 	}
 
-	showBanner()
 	rootCmd.Flags().BoolVarP(&filterOnlyFounds, "only-found", "i", false, "Prints only found messages. Errors, and invalid username errors will not appear.")
+
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
