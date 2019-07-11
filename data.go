@@ -118,7 +118,7 @@ var sites = []Site{
 	},
 	Site{
 		name:       "Canva",
-		checkBy:    "response_url",
+		checkBy:    "status_code",
 		rank:       178,
 		profileUrl: "https://www.canva.com/%s",
 		mainUrl:    "https://www.canva.com/",
@@ -197,7 +197,7 @@ var sites = []Site{
 	},
 	Site{
 		name:       "CreativeMarket",
-		checkBy:    "response_url",
+		checkBy:    "status_code",
 		rank:       2094,
 		profileUrl: "https://creativemarket.com/%s",
 		mainUrl:    "https://creativemarket.com/",
@@ -275,7 +275,7 @@ var sites = []Site{
 	},
 	Site{
 		name:       "EVE Online",
-		checkBy:    "response_url",
+		checkBy:    "status_code",
 		rank:       11756,
 		profileUrl: "https://evewho.com/pilot/%s/",
 		mainUrl:    "https://eveonline.com",
