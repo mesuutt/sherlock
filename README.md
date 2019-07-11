@@ -21,7 +21,7 @@ go get -u github.com/mesuutt/sherlock
 
 #### See in action
 
-[![See in action](https://asciinema.org/a/nAry2aXp2BPleLRTY5Zpe8IxQ.png)](https://asciinema.org/a/nAry2aXp2BPleLRTY5Zpe8IxQ?speed=1.5)
+[![See in action](https://asciinema.org/a/xR5kuLPyNeqG3BAifRYJkS4AY.png)](https://asciinema.org/a/xR5kuLPyNeqG3BAifRYJkS4AY?speed=1.5)
 
 ## Usage
 
