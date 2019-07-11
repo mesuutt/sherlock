@@ -12,7 +12,7 @@ func main() {
 	var filterOnlyFounds bool
 
 	var rootCmd = &cobra.Command{
-		Use:     "sherlock",
+		Use:     "sherlock USERNAME",
 		Short:   "Find usernames across social networks",
 		Args:    cobra.MinimumNArgs(1),
 		Example: "sherlock user123",
