@@ -1,0 +1,16 @@
+build:
+  binary: sherlock
+  goos:
+    - linux
+    - freebsd
+    - darwin
+    - windows
+  goarch:
+    - amd64
+    - 386
+
+archives:
+  -
+    format_overrides:
+      - goos: windows
+        format: zip
