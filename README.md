@@ -13,10 +13,10 @@ Faster alternative of [sherlock-project/sherlock](https://github.com/sherlock-pr
 
 ### Installation
 
-Grab a [binary](https://github.com/mesuutt/sharlock/releases) or:
+Grab a [binary](https://github.com/mesuutt/sherlock/releases) or:
 
 ```
-go get -u github.com/mesuutt/sharlock
+go get -u github.com/mesuutt/sherlock
 ```
 
 #### See in action
