@@ -33,7 +33,7 @@ Usage:
   sharlock USERNAME
 
 Examples:
-sherlock mesuutt
+sherlock user123
 
 Flags:
   -h, --help         help for sharlock
