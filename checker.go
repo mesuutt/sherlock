@@ -77,14 +77,14 @@ func (c *Checker) checkSite(check *Check) {
 		return
 	}
 
-	defer resp.Body.Close()
+	defer res.Body.Close()
 	if check.site.checkBy == "status_code" {
-		check.found = resp.StatusCode == 200
+		check.found = res.StatusCode == 200
 		c.results <- check
 		return
 	}
 
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := ioutil.ReadAll(res.Body)
 
 	if err != nil {
 		check.failed = true
