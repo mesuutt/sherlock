@@ -10,7 +10,7 @@
 
 -------
 
-Faster alternative of [sherlock-project/sherlock](https://github.com/sherlock-project/sherlock) written in Go.
+Faster and minimal implementation of [sherlock-project/sherlock](https://github.com/sherlock-project/sherlock) written in Go.
 
 
 ### Installation
