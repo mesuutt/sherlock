@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"regexp"
 	"strings"
 	"sync"
 )
@@ -15,6 +16,7 @@ type Check struct {
 	username string
 	found    bool // Keeps username is found or not on the website
 	failed   bool // Keeps check is success or not
+	errorMsg string
 }
 
 func (c *Check) ProfileUrl() string {
@@ -56,8 +58,18 @@ func (c *Checker) Results() resultChan {
 }
 
 func (c *Checker) checkSite(check *Check) {
-	resp, err := http.Get(check.ProfileUrl())
 	defer c.wg.Done()
+
+	if check.site.regexCheck != "" {
+		match, _ := regexp.MatchString(check.site.regexCheck, c.username)
+		if !match {
+			check.errorMsg = "Illegal username format!"
+			c.results <- check
+			return
+		}
+	}
+
+	res, err := http.Get(check.ProfileUrl())
 	if err != nil {
 		// Check failed
 		check.failed = true

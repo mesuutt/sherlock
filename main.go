@@ -49,7 +49,12 @@ func main() {
 					if c.found {
 						fmt.Printf("[%s] %s: %s\n", boldGreen("+"), boldGreen(c.site.name), c.ProfileUrl())
 					} else {
-						fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldGreen(c.site.name), boldYellow("Not Found!"))
+						if c.errorMsg != "" {
+							fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldGreen(c.site.name), boldYellow(c.errorMsg))
+						} else {
+							fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldGreen(c.site.name), boldYellow("Not Found!"))
+
+						}
 					}
 				}
 			}
