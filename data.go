@@ -6,6 +6,7 @@ type Site struct {
 	checkBy    string
 	profileUrl string
 	mainUrl    string
+	regexCheck string
 }
 
 var sites = []Site{
@@ -98,6 +99,7 @@ var sites = []Site{
 	Site{
 		name:       "Blogger",
 		checkBy:    "status_code",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://%s.blogspot.com",
 		mainUrl:    "https://www.blogger.com/",
 	},
@@ -166,6 +168,7 @@ var sites = []Site{
 		name:       "Contently",
 		errorMsg:   "We can't find that page!",
 		checkBy:    "page_content",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://%s.contently.com/",
 		mainUrl:    "https://contently.com/",
 	},
@@ -196,6 +199,7 @@ var sites = []Site{
 	Site{
 		name:       "DEV Community",
 		checkBy:    "status_code",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://dev.to/%s",
 		mainUrl:    "https://dev.to/",
 	},
@@ -214,6 +218,7 @@ var sites = []Site{
 	Site{
 		name:       "DeviantART",
 		checkBy:    "status_code",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://%s.deviantart.com",
 		mainUrl:    "https://deviantart.com",
 	},
@@ -239,6 +244,7 @@ var sites = []Site{
 		name:       "Dribbble",
 		errorMsg:   "Whoops, that page is gone.",
 		checkBy:    "page_content",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://dribbble.com/%s",
 		mainUrl:    "https://dribbble.com/",
 	},
@@ -277,6 +283,7 @@ var sites = []Site{
 	Site{
 		name:       "Facebook",
 		checkBy:    "status_code",
+		regexCheck: "^[a-zA-Z0-9]{4,49}(?<!.com|.org|.net)$",
 		profileUrl: "https://www.facebook.com/%s",
 		mainUrl:    "https://www.facebook.com/",
 	},
@@ -295,6 +302,7 @@ var sites = []Site{
 	Site{
 		name:       "Flipboard",
 		checkBy:    "status_code",
+		regexCheck: "^([a-zA-Z0-9_]){1,15}$",
 		profileUrl: "https://flipboard.com/@%s",
 		mainUrl:    "https://flipboard.com/",
 	},
@@ -313,6 +321,7 @@ var sites = []Site{
 	Site{
 		name:       "GitHub",
 		checkBy:    "status_code",
+		regexCheck: "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
 		profileUrl: "https://www.github.com/%s",
 		mainUrl:    "https://www.github.com/",
 	},
@@ -468,6 +477,7 @@ var sites = []Site{
 		name:       "Kongregate",
 		errorMsg:   "Sorry, no account with that name was found.",
 		checkBy:    "page_content",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://www.kongregate.com/accounts/%s",
 		mainUrl:    "https://www.kongregate.com/",
 	},
@@ -487,6 +497,7 @@ var sites = []Site{
 	Site{
 		name:       "LiveJournal",
 		checkBy:    "status_code",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://%s.livejournal.com",
 		mainUrl:    "https://www.livejournal.com/",
 	},
@@ -537,6 +548,7 @@ var sites = []Site{
 	Site{
 		name:       "Newgrounds",
 		checkBy:    "status_code",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://%s.newgrounds.com",
 		mainUrl:    "https://newgrounds.com",
 	},
@@ -584,6 +596,12 @@ var sites = []Site{
 		mainUrl:    "https://plug.dj/",
 	},
 	Site{
+		name:       "Pokemon Showdown",
+		checkBy:    "status_code",
+		profileUrl: "https://pokemonshowdown.com/users/%s",
+		mainUrl:    "https://pokemonshowdown.com",
+	},
+	Site{
 		name:       "ProductHunt",
 		errorMsg:   "Product Hunt is a curation of the best new products",
 		checkBy:    "page_content",
@@ -625,6 +643,7 @@ var sites = []Site{
 	Site{
 		name:       "ResearchGate",
 		checkBy:    "response_url",
+		regexCheck: "\\w+_\\w+",
 		profileUrl: "https://www.researchgate.net/profile/%s",
 		mainUrl:    "https://www.researchgate.net/",
 	},
@@ -659,6 +678,7 @@ var sites = []Site{
 	Site{
 		name:       "Slack",
 		checkBy:    "status_code",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://%s.slack.com",
 		mainUrl:    "https://slack.com",
 	},
@@ -844,6 +864,7 @@ var sites = []Site{
 	Site{
 		name:       "WordPress",
 		checkBy:    "response_url",
+		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://%s.wordpress.com/",
 		mainUrl:    "https://wordpress.com",
 	},
@@ -874,10 +895,22 @@ var sites = []Site{
 		mainUrl:    "https://www.zhihu.com/",
 	},
 	Site{
+		name:       "boingboing.net",
+		checkBy:    "status_code",
+		profileUrl: "https://bbs.boingboing.net/u/%s",
+		mainUrl:    "https://boingboing.net/",
+	},
+	Site{
 		name:       "devRant",
 		checkBy:    "response_url",
 		profileUrl: "https://devrant.com/users/%s",
 		mainUrl:    "https://devrant.com/",
+	},
+	Site{
+		name:       "gfycat",
+		checkBy:    "status_code",
+		profileUrl: "https://gfycat.com/@%s",
+		mainUrl:    "https://gfycat.com/",
 	},
 	Site{
 		name:       "iMGSRC.RU",
@@ -890,5 +923,11 @@ var sites = []Site{
 		checkBy:    "status_code",
 		profileUrl: "https://last.fm/user/%s",
 		mainUrl:    "https://last.fm/",
+	},
+	Site{
+		name:       "osu!",
+		checkBy:    "status_code",
+		profileUrl: "https://osu.ppy.sh/users/%s",
+		mainUrl:    "https://osu.ppy.sh/",
 	},
 }
