@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -8,9 +9,16 @@ import (
 
 type checkerFunc func(*Checker, *Check)
 
+var userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
+
 // statusChecker check username by response status code
 func statusChecker(checker *Checker, check *Check) {
-	res, err := http.Get(check.ProfileUrl())
+	// res, err := http.Get(check.ProbeUrl())
+	client := &http.Client{}
+	req, err := http.NewRequest("GET", check.ProfileUrl(), nil)
+	req.Header.Set("User-Agent", userAgent)
+	res, err := client.Do(req)
+
 	if err != nil {
 		// Check failed
 		check.errorMsg = "Request Error"
@@ -24,11 +32,16 @@ func statusChecker(checker *Checker, check *Check) {
 	checker.results <- check
 }
 
-// bodyChecker check username by searching username in body content
+// bodyChecker unsure username by searching given text in page content
 func bodyChecker(searchText string) checkerFunc {
 
 	return func(checker *Checker, check *Check) {
-		res, err := http.Get(check.ProbeUrl())
+		// res, err := http.Get(check.ProbeUrl())
+		client := &http.Client{}
+		req, err := http.NewRequest("GET", check.ProfileUrl(), nil)
+		req.Header.Set("User-Agent", userAgent)
+		res, err := client.Do(req)
+
 		if err != nil {
 			// Check failed
 			check.errorMsg = "Request Error"
@@ -48,6 +61,31 @@ func bodyChecker(searchText string) checkerFunc {
 		}
 
 		check.found = !strings.Contains(string(body), searchText)
+		checker.results <- check
+	}
+}
+
+// catchByRedirectUrl check username by redirected page url
+func catchByRedirectUrl(redirectUrlTemplate string) checkerFunc {
+	return func(checker *Checker, check *Check) {
+		client := &http.Client{CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			return http.ErrUseLastResponse
+		}}
+
+		req, err := http.NewRequest("GET", check.ProfileUrl(), nil)
+		req.Header.Set("User-Agent", userAgent)
+		res, err := client.Do(req)
+
+		if err != nil {
+			// Check failed
+			check.errorMsg = "Request Error"
+			check.failed = true
+			checker.results <- check
+			return
+		}
+
+		errorUrl := fmt.Sprintf(redirectUrlTemplate, check.username)
+		check.found = !strings.Contains(res.Header.Get("Location"), errorUrl)
 		checker.results <- check
 	}
 }
