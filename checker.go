@@ -19,8 +19,18 @@ type Check struct {
 	errorMsg string
 }
 
+// ProfileUrl return profile url of username
 func (c *Check) ProfileUrl() string {
 	return fmt.Sprintf(c.site.profileUrl, c.username)
+}
+
+// ProbeUrl return page which using for check existance of username
+func (c *Check) ProbeUrl() string {
+	if c.site.probeUrl != "" {
+		return fmt.Sprintf(c.site.probeUrl, c.username)
+	}
+	return fmt.Sprintf(c.site.profileUrl, c.username)
+
 }
 
 type Checker struct {
@@ -67,6 +77,11 @@ func (c *Checker) checkSite(check *Check) {
 			c.results <- check
 			return
 		}
+	}
+
+	if check.site.checkerFn != nil {
+		check.site.checkerFn(c, check)
+		return
 	}
 
 	res, err := http.Get(check.ProfileUrl())
