@@ -2,10 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"net/http"
 	"regexp"
-	"strings"
 	"sync"
 )
 
@@ -81,32 +78,9 @@ func (c *Checker) checkSite(check *Check) {
 
 	if check.site.checkerFn != nil {
 		check.site.checkerFn(c, check)
-		return
-	}
-
-	res, err := http.Get(check.ProfileUrl())
-	if err != nil {
-		// Check failed
+	} else {
+		check.errorMsg = "Checker not found"
 		check.failed = true
 		c.results <- check
-		return
 	}
-
-	defer res.Body.Close()
-	if check.site.checkBy == "status_code" {
-		check.found = res.StatusCode == 200
-		c.results <- check
-		return
-	}
-
-	body, err := ioutil.ReadAll(res.Body)
-
-	if err != nil {
-		check.failed = true
-		c.results <- check
-		return
-	}
-
-	check.found = !strings.Contains(string(body), check.site.errorMsg)
-	c.results <- check
 }

@@ -53,7 +53,6 @@ func main() {
 							fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldGreen(c.site.name), boldYellow(c.errorMsg))
 						} else {
 							fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldGreen(c.site.name), boldYellow("Not Found!"))
-
 						}
 					}
 				}
