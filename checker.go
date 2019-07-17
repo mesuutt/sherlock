@@ -75,12 +75,5 @@ func (c *Checker) checkSite(check *Check) {
 			return
 		}
 	}
-
-	if check.site.checkerFn != nil {
-		check.site.checkerFn(c, check)
-	} else {
-		check.errorMsg = "Checker not found"
-		check.failed = true
-		c.results <- check
-	}
+	check.site.checkerFn(c, check)
 }
