@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"net/url"
 	"os"
 
 	"github.com/fatih/color"
@@ -10,16 +12,22 @@ import (
 
 func main() {
 	var filterOnlyFounds bool
-
+	var proxyStr string
 	var rootCmd = &cobra.Command{
 		Use:     "sherlock USERNAME",
 		Short:   "Find usernames across social networks",
 		Args:    cobra.MinimumNArgs(1),
 		Example: "sherlock user123",
 		Run: func(cmd *cobra.Command, args []string) {
-			showBanner()
 			username := args[0]
-			checker := newChecker(username, &sites)
+			proxyURL, err := url.Parse(proxyStr)
+
+			if proxyStr != "" && (err != nil || proxyURL.Scheme == "" || proxyURL.Host == "") {
+				log.Fatal("Proxy URL not valid")
+			}
+
+			showBanner()
+			checker := newChecker(username, &sites, proxyURL)
 			go checker.Check()
 
 			red := color.New(color.FgRed).SprintFunc()
@@ -61,6 +69,8 @@ func main() {
 	}
 
 	rootCmd.Flags().BoolVarP(&filterOnlyFounds, "only-found", "i", false, "Prints only found messages. Errors, and invalid username errors will not appear.")
+
+	rootCmd.Flags().StringVarP(&proxyStr, "proxy", "p", "", "Make requests over a proxy.")
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

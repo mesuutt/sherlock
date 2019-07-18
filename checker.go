@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"net/url"
 	"regexp"
 	"sync"
 )
@@ -33,15 +35,17 @@ func (c *Check) ProbeUrl() string {
 type Checker struct {
 	username string
 	sites    []Site
+	proxyURL *url.URL
 	results  resultChan
 	wg       *sync.WaitGroup
 }
 
-func newChecker(username string, sites *[]Site) *Checker {
+func newChecker(username string, sites *[]Site, proxyURL *url.URL) *Checker {
 	return &Checker{
 		username: username,
 		results:  make(resultChan),
 		sites:    *sites,
+		proxyURL: proxyURL,
 		wg:       &sync.WaitGroup{},
 	}
 }
@@ -75,5 +79,23 @@ func (c *Checker) checkSite(check *Check) {
 			return
 		}
 	}
+
 	check.site.checkerFn(c, check)
+}
+
+func (checker *Checker) CreateClient() *http.Client {
+	var client = &http.Client{}
+	if *checker.proxyURL != (url.URL{}) {
+		//adding the proxy settings to the Transport object
+		transport := &http.Transport{
+			Proxy: http.ProxyURL(checker.proxyURL),
+		}
+
+		//adding the Transport object to the http Client
+		client = &http.Client{
+			Transport: transport,
+		}
+	}
+
+	return client
 }

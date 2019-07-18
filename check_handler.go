@@ -14,7 +14,8 @@ var userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like
 // statusChecker check username by response status code
 func statusChecker(checker *Checker, check *Check) {
 	// res, err := http.Get(check.ProbeUrl())
-	client := &http.Client{}
+	var client = checker.CreateClient()
+
 	req, err := http.NewRequest("GET", check.ProfileUrl(), nil)
 	req.Header.Set("User-Agent", userAgent)
 	res, err := client.Do(req)
@@ -37,7 +38,7 @@ func bodyChecker(searchText string) checkerFunc {
 
 	return func(checker *Checker, check *Check) {
 		// res, err := http.Get(check.ProbeUrl())
-		client := &http.Client{}
+		var client = checker.CreateClient()
 		req, err := http.NewRequest("GET", check.ProfileUrl(), nil)
 		req.Header.Set("User-Agent", userAgent)
 		res, err := client.Do(req)
@@ -68,9 +69,10 @@ func bodyChecker(searchText string) checkerFunc {
 // catchByRedirectUrl check username by redirected page url
 func catchByRedirectUrl(redirectUrlTemplate string) checkerFunc {
 	return func(checker *Checker, check *Check) {
-		client := &http.Client{CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		var client = checker.CreateClient()
+		client.CheckRedirect = func(req *http.Request, via []*http.Request) error {
 			return http.ErrUseLastResponse
-		}}
+		}
 
 		req, err := http.NewRequest("GET", check.ProfileUrl(), nil)
 		req.Header.Set("User-Agent", userAgent)
