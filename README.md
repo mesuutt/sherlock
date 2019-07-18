@@ -15,7 +15,7 @@ Faster and minimal implementation of [sherlock-project/sherlock](https://github.
 
 ### Installation
 
-Grab a [binary](https://github.com/mesuutt/sherlock/releases) or:
+[Download an executable](https://github.com/mesuutt/sherlock/releases) or:
 
 ```
 go get -u github.com/mesuutt/sherlock
