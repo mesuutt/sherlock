@@ -388,10 +388,12 @@ var sites = []Site{
 		checkerFn: catchByRedirectUrl("https://www.eyeem.com/"),
 	},
 	Site{
-		name:       "Facebook",
-		checkBy:    "status_code",
-		rank:       3,
-		regexCheck: "^[a-zA-Z0-9]{4,49}(?<!.com|.org|.net)$",
+		name:    "Facebook",
+		checkBy: "status_code",
+		rank:    3,
+		// TODO: Regex
+		regexCheck: "^[a-zA-Z0-9]{4,49}$",
+		// regexCheck: "^[a-zA-Z0-9]{4,49}(?<!.com|.org|.net)$",
 		profileUrl: "https://www.facebook.com/%s",
 		// mainUrl:    "https://www.facebook.com/",
 		checkerFn: statusChecker,
@@ -438,10 +440,12 @@ var sites = []Site{
 		checkerFn: statusChecker,
 	},
 	Site{
-		name:       "GitHub",
-		checkBy:    "status_code",
-		rank:       55,
-		regexCheck: "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
+		name:    "GitHub",
+		checkBy: "status_code",
+		rank:    55,
+		// TODO: Regex
+		regexCheck: "^[a-zA-Z0-9-]{0,38}$",
+		// regexCheck: "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
 		profileUrl: "https://www.github.com/%s",
 		// mainUrl:    "https://www.github.com/",
 		checkerFn: statusChecker,
@@ -895,8 +899,11 @@ var sites = []Site{
 		name: "ResearchGate",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://www.researchgate.net/directory/profiles",
-		rank:       114,
-		regexCheck: "\\w+_\\w+",
+		rank: 114,
+
+		// TODO: Regex
+		regexCheck: "^[a-zA-Z0-9-_]+$",
+		// regexCheck: "[w+_\\w+",
 		profileUrl: "https://www.researchgate.net/profile/%s",
 		// mainUrl:    "https://www.researchgate.net/",
 		checkerFn: catchByRedirectUrl("https://www.researchgate.net/directory/profiles"),
