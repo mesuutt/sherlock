@@ -8,20 +8,22 @@
 
 </p>
 
-Faster alternative of [sherlock-project/sherlock](https://github.com/sherlock-project/sherlock) written in go.
+-------
+
+Faster and minimal implementation of [sherlock-project/sherlock](https://github.com/sherlock-project/sherlock) written in Go.
 
 
 ### Installation
 
-Grab a [binary](https://github.com/mesuutt/sharlock/releases) or:
+Grab a [binary](https://github.com/mesuutt/sherlock/releases) or:
 
 ```
-go get -u github.com/mesuutt/sharlock
+go get -u github.com/mesuutt/sherlock
 ```
 
 #### See in action
 
-[![See in action](https://asciinema.org/a/nAry2aXp2BPleLRTY5Zpe8IxQ.png)](https://asciinema.org/a/nAry2aXp2BPleLRTY5Zpe8IxQ?speed=1.5)
+[![See in action](https://asciinema.org/a/256939.png)](https://asciinema.org/a/256939?speed=1.5)
 
 ## Usage
 
@@ -33,12 +35,18 @@ Usage:
   sharlock USERNAME
 
 Examples:
-sherlock mesuutt
+sherlock user123
 
 Flags:
   -h, --help         help for sharlock
-  -i, --only-found   Prints only found messages. Errors, and invalid username errors will not appear.
+  -i, --only-found     Prints only found messages. Errors, and invalid username errors will not appear.
+  -p, --proxy string   Make requests over a proxy.
 ```
+
+## TODO:
+
+- [ ] Write tests
+
 
 ## License
 

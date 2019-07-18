@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"net/http"
-	"strings"
+	"net/url"
+	"regexp"
 	"sync"
 )
 
@@ -15,24 +15,37 @@ type Check struct {
 	username string
 	found    bool // Keeps username is found or not on the website
 	failed   bool // Keeps check is success or not
+	errorMsg string
 }
 
+// ProfileUrl return profile url of username
 func (c *Check) ProfileUrl() string {
 	return fmt.Sprintf(c.site.profileUrl, c.username)
+}
+
+// ProbeUrl return page which using for check existance of username
+func (c *Check) ProbeUrl() string {
+	if c.site.probeUrl != "" {
+		return fmt.Sprintf(c.site.probeUrl, c.username)
+	}
+	return fmt.Sprintf(c.site.profileUrl, c.username)
+
 }
 
 type Checker struct {
 	username string
 	sites    []Site
+	proxyURL *url.URL
 	results  resultChan
 	wg       *sync.WaitGroup
 }
 
-func newChecker(username string, sites *[]Site) *Checker {
+func newChecker(username string, sites *[]Site, proxyURL *url.URL) *Checker {
 	return &Checker{
 		username: username,
 		results:  make(resultChan),
 		sites:    *sites,
+		proxyURL: proxyURL,
 		wg:       &sync.WaitGroup{},
 	}
 }
@@ -56,30 +69,33 @@ func (c *Checker) Results() resultChan {
 }
 
 func (c *Checker) checkSite(check *Check) {
-	resp, err := http.Get(check.ProfileUrl())
 	defer c.wg.Done()
-	if err != nil {
-		// Check failed
-		check.failed = true
-		c.results <- check
-		return
+
+	if check.site.regexCheck != "" {
+		match, _ := regexp.MatchString(check.site.regexCheck, c.username)
+		if !match {
+			check.errorMsg = "Illegal username format!"
+			c.results <- check
+			return
+		}
 	}
 
-	defer resp.Body.Close()
-	if check.site.checkBy == "status_code" {
-		check.found = resp.StatusCode == 200
-		c.results <- check
-		return
+	check.site.checkerFn(c, check)
+}
+
+func (checker *Checker) CreateClient() *http.Client {
+	var client = &http.Client{}
+	if *checker.proxyURL != (url.URL{}) {
+		//adding the proxy settings to the Transport object
+		transport := &http.Transport{
+			Proxy: http.ProxyURL(checker.proxyURL),
+		}
+
+		//adding the Transport object to the http Client
+		client = &http.Client{
+			Transport: transport,
+		}
 	}
 
-	body, err := ioutil.ReadAll(resp.Body)
-
-	if err != nil {
-		check.failed = true
-		c.results <- check
-		return
-	}
-
-	check.found = !strings.Contains(string(body), check.site.errorMsg)
-	c.results <- check
+	return client
 }
