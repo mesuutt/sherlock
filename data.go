@@ -159,7 +159,7 @@ var sites = []Site{
 		rank:       31822,
 		profileUrl: "https://%s.carbonmade.com",
 		// mainUrl:    "https://carbonmade.com/",
-		checkerFn: catchByRedirectUrl("https://carbonmade.com/fourohfour?domain=%s.carbonmade.com"),
+		checkerFn: redirectChecker("https://carbonmade.com/fourohfour?domain=%s.carbonmade.com"),
 	},
 	Site{
 		name: "CashMe",
@@ -251,7 +251,7 @@ var sites = []Site{
 		rank:       2100,
 		profileUrl: "https://creativemarket.com/%s",
 		// mainUrl:    "https://creativemarket.com/",
-		checkerFn: catchByRedirectUrl("https://www.creativemarket.com/"),
+		checkerFn: redirectChecker("https://www.creativemarket.com/"),
 	},
 	Site{
 		name: "Crevado",
@@ -345,7 +345,7 @@ var sites = []Site{
 		rank:       11619,
 		profileUrl: "https://evewho.com/pilot/%s/",
 		// mainUrl:    "https://eveonline.com",
-		checkerFn: catchByRedirectUrl("https://eveonline.com"),
+		checkerFn: redirectChecker("https://eveonline.com"),
 	},
 	Site{
 		name: "Ebay",
@@ -380,7 +380,7 @@ var sites = []Site{
 		rank:       32792,
 		profileUrl: "https://www.eyeem.com/u/%s",
 		// mainUrl:    "https://www.eyeem.com/",
-		checkerFn: catchByRedirectUrl("https://www.eyeem.com/"),
+		checkerFn: redirectChecker("https://www.eyeem.com/"),
 	},
 	Site{
 		name: "Facebook",
@@ -557,7 +557,7 @@ var sites = []Site{
 		rank:       58288,
 		profileUrl: "https://imageshack.us/user/%s",
 		// mainUrl:    "https://imageshack.us/",
-		checkerFn: catchByRedirectUrl("https://imageshack.us/"),
+		checkerFn: redirectChecker("https://imageshack.us/"),
 	},
 	Site{
 		name: "Imgur",
@@ -718,7 +718,7 @@ var sites = []Site{
 		rank:       19198,
 		profileUrl: "https://www.meetme.com/%s",
 		// mainUrl:    "https://www.meetme.com/"
-		checkerFn: catchByRedirectUrl("https://www.meetme.com/"),
+		checkerFn: redirectChecker("https://www.meetme.com/"),
 	},
 	Site{
 		name: "MixCloud",
@@ -779,7 +779,7 @@ var sites = []Site{
 		rank:       918,
 		profileUrl: "https://pastebin.com/u/%s",
 		// mainUrl:    "https://pastebin.com/",
-		checkerFn: catchByRedirectUrl("https://pastebin.com/index"),
+		checkerFn: redirectChecker("https://pastebin.com/index"),
 	},
 	Site{
 		name: "Patreon",
@@ -854,7 +854,7 @@ var sites = []Site{
 		rank:       69,
 		profileUrl: "https://www.quora.com/profile/%s",
 		// mainUrl:    "https://www.quora.com/",
-		checkerFn: catchByRedirectUrl("https://www.quora.com/profile/%s"),
+		checkerFn: redirectChecker("https://www.quora.com/profile/%s"),
 	},
 	Site{
 		name: "Rajce.net",
@@ -901,7 +901,7 @@ var sites = []Site{
 		// regexCheck: "[w+_\\w+",
 		profileUrl: "https://www.researchgate.net/profile/%s",
 		// mainUrl:    "https://www.researchgate.net/",
-		checkerFn: catchByRedirectUrl("https://www.researchgate.net/directory/profiles"),
+		checkerFn: redirectChecker("https://www.researchgate.net/directory/profiles"),
 	},
 	Site{
 		name: "ReverbNation",
@@ -1201,7 +1201,7 @@ var sites = []Site{
 		regexCheck: "^[a-zA-Z][a-zA-Z0-9_-]*$",
 		profileUrl: "https://%s.wordpress.com/",
 		// mainUrl:    "https://wordpress.com",
-		checkerFn: catchByRedirectUrl("wordpress.com/typo/?subdomain="),
+		checkerFn: redirectChecker("wordpress.com/typo/?subdomain="),
 	},
 	Site{
 		name: "YouNow",
@@ -1237,7 +1237,7 @@ var sites = []Site{
 		rank:       70,
 		profileUrl: "https://www.zhihu.com/people/%s",
 		// mainUrl:    "https://www.zhihu.com/",
-		checkerFn: catchByRedirectUrl("https://www.zhihu.com/people/%s"),
+		checkerFn: redirectChecker("https://www.zhihu.com/people/%s"),
 	},
 	Site{
 		name: "boingboing.net",
@@ -1254,7 +1254,7 @@ var sites = []Site{
 		rank:       159249,
 		profileUrl: "https://devrant.com/users/%s",
 		// mainUrl:    "https://devrant.com/",
-		checkerFn: catchByRedirectUrl("https://devrant.com/"),
+		checkerFn: redirectChecker("https://devrant.com/"),
 	},
 	Site{
 		name: "gfycat",
@@ -1271,7 +1271,7 @@ var sites = []Site{
 		rank:       8262,
 		profileUrl: "https://imgsrc.ru/main/user.php?user=%s",
 		// mainUrl:    "https://imgsrc.ru/",
-		checkerFn: catchByRedirectUrl("https://imgsrc.ru/"),
+		checkerFn: redirectChecker("https://imgsrc.ru/"),
 	},
 	Site{
 		name: "last.fm",

@@ -67,7 +67,7 @@ func bodyChecker(searchText string) checkerFunc {
 }
 
 // catchByRedirectUrl check username by redirected page url
-func catchByRedirectUrl(redirectUrlTemplate string) checkerFunc {
+func redirectChecker(redirectUrlTemplate string) checkerFunc {
 	return func(checker *Checker, check *Check) {
 		var client = checker.CreateClient()
 		client.CheckRedirect = func(req *http.Request, via []*http.Request) error {
