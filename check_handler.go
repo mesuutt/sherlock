@@ -22,7 +22,11 @@ func statusChecker(checker *Checker, check *Check) {
 
 	if err != nil {
 		// Check failed
-		check.errorMsg = "Request Error"
+		if checker.conf.Verbose {
+			check.errorMsg = err.Error()
+		} else {
+			check.errorMsg = "Request Error"
+		}
 		check.failed = true
 		checker.results <- check
 		return
@@ -45,7 +49,11 @@ func bodyChecker(searchText string) checkerFunc {
 
 		if err != nil {
 			// Check failed
-			check.errorMsg = "Request Error"
+			if checker.conf.Verbose {
+				check.errorMsg = err.Error()
+			} else {
+				check.errorMsg = "Request Error"
+			}
 			check.failed = true
 			checker.results <- check
 			return
@@ -80,7 +88,12 @@ func redirectChecker(redirectUrlTemplate string) checkerFunc {
 
 		if err != nil {
 			// Check failed
-			check.errorMsg = "Request Error"
+			if checker.conf.Verbose {
+				check.errorMsg = err.Error()
+			} else {
+				check.errorMsg = "Request Error"
+			}
+			// check.errorMsg = "Request Error"
 			check.failed = true
 			checker.results <- check
 			return

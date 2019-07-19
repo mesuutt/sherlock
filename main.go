@@ -13,6 +13,7 @@ import (
 func main() {
 	var filterOnlyFounds bool
 	var proxyStr string
+	var verbose bool
 	var rootCmd = &cobra.Command{
 		Use:     "sherlock USERNAME",
 		Short:   "Find usernames across social networks",
@@ -27,7 +28,7 @@ func main() {
 			}
 
 			showBanner()
-			checker := newChecker(username, &sites, proxyURL)
+			checker := newChecker(username, &sites, proxyURL, verbose)
 			go checker.Check()
 
 			red := color.New(color.FgRed).SprintFunc()
@@ -52,7 +53,12 @@ func main() {
 				}
 
 				if c.failed {
-					fmt.Printf("[%s] %s: %s (%s)\n", boldRed("?"), boldRed(c.site.name), c.ProfileUrl(), red("Check failed"))
+					if checker.conf.Verbose {
+						fmt.Printf("[%s] %s: %s (%s\n", boldRed("?"), boldRed(c.site.name), c.ProfileUrl(), red(fmt.Sprintf("Error Message: %v", c.errorMsg)))
+
+					} else {
+						fmt.Printf("[%s] %s: %s (%s)\n", boldRed("?"), boldRed(c.site.name), c.ProfileUrl(), red("Check failed. Use -v flag for verbose mode"))
+					}
 				} else {
 					if c.found {
 						fmt.Printf("[%s] %s: %s\n", boldGreen("+"), boldGreen(c.site.name), c.ProfileUrl())
@@ -71,6 +77,7 @@ func main() {
 	rootCmd.Flags().BoolVarP(&filterOnlyFounds, "only-found", "i", false, "Prints only found messages. Errors, and invalid username errors will not appear.")
 
 	rootCmd.Flags().StringVarP(&proxyStr, "proxy", "p", "", "Make requests over a proxy.")
+	rootCmd.Flags().BoolVarP(&verbose, "verbose", "v", false, "Enable verbose mode for detailed error messages.")
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

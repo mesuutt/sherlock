@@ -41,6 +41,7 @@ Flags:
   -h, --help         help for sharlock
   -i, --only-found     Prints only found messages. Errors, and invalid username errors will not appear.
   -p, --proxy string   Make requests over a proxy.
+  -v, --verbose        Enable verbose mode for detailed error messages.
 ```
 
 ## TODO:

@@ -32,21 +32,29 @@ func (c *Check) ProbeUrl() string {
 
 }
 
+type CheckConfig struct {
+	Verbose  bool
+	ProxyURL *url.URL
+}
+
 type Checker struct {
 	username string
 	sites    []Site
-	proxyURL *url.URL
 	results  resultChan
 	wg       *sync.WaitGroup
+	conf     *CheckConfig
 }
 
-func newChecker(username string, sites *[]Site, proxyURL *url.URL) *Checker {
+func newChecker(username string, sites *[]Site, proxyURL *url.URL, verbose bool) *Checker {
 	return &Checker{
 		username: username,
 		results:  make(resultChan),
 		sites:    *sites,
-		proxyURL: proxyURL,
 		wg:       &sync.WaitGroup{},
+		conf: &CheckConfig{
+			Verbose:  verbose,
+			ProxyURL: proxyURL,
+		},
 	}
 }
 
@@ -85,10 +93,11 @@ func (c *Checker) checkSite(check *Check) {
 
 func (checker *Checker) CreateClient() *http.Client {
 	var client = &http.Client{}
-	if *checker.proxyURL != (url.URL{}) {
+	if *checker.conf.ProxyURL != (url.URL{}) {
+		fmt.Printf("Proxy kullanilacak")
 		//adding the proxy settings to the Transport object
 		transport := &http.Transport{
-			Proxy: http.ProxyURL(checker.proxyURL),
+			Proxy: http.ProxyURL(checker.conf.ProxyURL),
 		}
 
 		//adding the Transport object to the http Client
