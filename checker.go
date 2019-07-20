@@ -18,6 +18,19 @@ type Check struct {
 	errorMsg string
 }
 
+type CheckConfig struct {
+	Verbose  bool
+	ProxyURL *url.URL
+}
+
+type Checker struct {
+	username string
+	sites    []Site
+	results  resultChan
+	wg       *sync.WaitGroup
+	conf     *CheckConfig
+}
+
 // ProfileUrl return profile url of username
 func (c *Check) ProfileUrl() string {
 	return fmt.Sprintf(c.site.profileUrl, c.username)
@@ -30,19 +43,6 @@ func (c *Check) ProbeUrl() string {
 	}
 	return fmt.Sprintf(c.site.profileUrl, c.username)
 
-}
-
-type CheckConfig struct {
-	Verbose  bool
-	ProxyURL *url.URL
-}
-
-type Checker struct {
-	username string
-	sites    []Site
-	results  resultChan
-	wg       *sync.WaitGroup
-	conf     *CheckConfig
 }
 
 func newChecker(username string, sites *[]Site, proxyURL *url.URL, verbose bool) *Checker {
