@@ -94,7 +94,6 @@ func (c *Checker) checkSite(check *Check) {
 func (checker *Checker) CreateClient() *http.Client {
 	var client = &http.Client{}
 	if *checker.conf.ProxyURL != (url.URL{}) {
-		fmt.Printf("Proxy kullanilacak")
 		//adding the proxy settings to the Transport object
 		transport := &http.Transport{
 			Proxy: http.ProxyURL(checker.conf.ProxyURL),
