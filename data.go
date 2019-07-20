@@ -11,7 +11,7 @@ type Site struct {
 }
 
 var sites = []Site{
-	Site{
+	{
 		name: "500px",
 		// errorMsg:   "Oops! This page doesn\u2019t exist.",
 		// checkBy:    "message",
@@ -20,7 +20,7 @@ var sites = []Site{
 		// mainUrl:    "https://500px.com/",
 		checkerFn: bodyChecker("Oops! This page doesn\u2019t exist."),
 	},
-	Site{
+	{
 		name: "9GAG",
 		// checkBy:    "status_code",
 		rank:       308,
@@ -28,7 +28,7 @@ var sites = []Site{
 		// mainUrl:    "https://9gag.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "About.me",
 		// checkBy:    "status_code",
 		rank:       14151,
@@ -36,7 +36,7 @@ var sites = []Site{
 		// mainUrl:    "https://about.me/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Academia.edu",
 		// checkBy:    "status_code",
 		rank:       184,
@@ -44,7 +44,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.academia.edu/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "AngelList",
 		// checkBy:    "status_code",
 		rank:       3377,
@@ -52,7 +52,7 @@ var sites = []Site{
 		// mainUrl:    "https://angel.co/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Aptoide",
 		// checkBy:    "status_code",
 		rank:       4933,
@@ -60,7 +60,7 @@ var sites = []Site{
 		// mainUrl:    "https://en.aptoide.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "AskFM",
 		// checkBy:    "status_code",
 		rank:       1162,
@@ -68,7 +68,7 @@ var sites = []Site{
 		// mainUrl:    "https://ask.fm/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "BLIP.fm",
 		// checkBy:    "status_code",
 		rank:       366949,
@@ -76,7 +76,7 @@ var sites = []Site{
 		// mainUrl:    "https://blip.fm/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Badoo",
 		// checkBy:    "status_code",
 		rank:       1268,
@@ -84,7 +84,7 @@ var sites = []Site{
 		// mainUrl:    "https://badoo.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Bandcamp",
 		// checkBy:    "status_code",
 		rank:       607,
@@ -92,7 +92,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.bandcamp.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Basecamp",
 		//errorMsg:   "The account you were looking for doesn't exist",
 		// checkBy:    "message",
@@ -101,7 +101,7 @@ var sites = []Site{
 		// mainUrl:    "https://basecamp.com/",
 		checkerFn: bodyChecker("The account you were looking for doesn't exist"),
 	},
-	Site{
+	{
 		name: "Behance",
 		// checkBy:    "status_code",
 		rank:       384,
@@ -109,7 +109,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.behance.net/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "BitBucket",
 		// checkBy:    "status_code",
 		rank:       989,
@@ -117,7 +117,7 @@ var sites = []Site{
 		// mainUrl:    "https://bitbucket.org/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "BitCoinForum",
 		// errorMsg:   "The user whose profile you are trying to view does not exist.",
 		// checkBy:    "message",
@@ -126,7 +126,7 @@ var sites = []Site{
 		// mainUrl:    "https://bitcoinforum.com",
 		checkerFn: bodyChecker("The user whose profile you are trying to view does not exist."),
 	},
-	Site{
+	{
 		name: "Blogger",
 		// checkBy:    "status_code",
 		rank:       211,
@@ -135,7 +135,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.blogger.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "BuzzFeed",
 		// checkBy:    "status_code",
 		rank:       283,
@@ -143,7 +143,7 @@ var sites = []Site{
 		// mainUrl:    "https://buzzfeed.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Canva",
 		// checkBy: "status_code",
 		// errorUrl:   "https://www.canva.com/%s",
@@ -152,7 +152,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.canva.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Carbonmade",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://carbonmade.com/fourohfour?domain=%s.carbonmade.com",
@@ -161,7 +161,7 @@ var sites = []Site{
 		// mainUrl:    "https://carbonmade.com/",
 		checkerFn: redirectChecker("https://carbonmade.com/fourohfour?domain=%s.carbonmade.com"),
 	},
-	Site{
+	{
 		name: "CashMe",
 		// checkBy:    "status_code",
 		rank:       12351551,
@@ -169,7 +169,7 @@ var sites = []Site{
 		// mainUrl:    "https://cash.me/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Cloob",
 		// checkBy:    "status_code",
 		rank:       9254,
@@ -177,7 +177,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.cloob.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Codecademy",
 		// checkBy:    "status_code",
 		rank:       2943,
@@ -185,7 +185,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.codecademy.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Codechef",
 		// checkBy:    "status_code",
 		rank:       9098,
@@ -193,7 +193,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.codechef.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Codementor",
 		// checkBy:    "status_code",
 		rank:       9600,
@@ -201,7 +201,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.codementor.io/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Codepen",
 		// checkBy:    "status_code",
 		rank:       831,
@@ -209,7 +209,7 @@ var sites = []Site{
 		// mainUrl:    "https://codepen.io/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Coderwall",
 		//errorMsg:   "404! Our feels when that url is used",
 		//checkBy:    "message",
@@ -218,7 +218,7 @@ var sites = []Site{
 		// mainUrl:    "https://coderwall.com/",
 		checkerFn: bodyChecker("404! Our feels when that url is used"),
 	},
-	Site{
+	{
 		name: "ColourLovers",
 		// checkBy:    "status_code",
 		rank:       32386,
@@ -226,7 +226,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.colourlovers.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Contently",
 		// errorMsg:   "We can't find that page!",
 		// checkBy:    "message",
@@ -236,7 +236,7 @@ var sites = []Site{
 		// mainUrl:    "https://contently.com/",
 		checkerFn: bodyChecker("We can't find that page!"),
 	},
-	Site{
+	{
 		name: "Coroflot",
 		// checkBy:    "status_code",
 		rank:       40375,
@@ -244,7 +244,7 @@ var sites = []Site{
 		// mainUrl:    "https://coroflot.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "CreativeMarket",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://www.creativemarket.com/",
@@ -253,7 +253,7 @@ var sites = []Site{
 		// mainUrl:    "https://creativemarket.com/",
 		checkerFn: redirectChecker("https://www.creativemarket.com/"),
 	},
-	Site{
+	{
 		name: "Crevado",
 		// checkBy:    "status_code",
 		rank:       178744,
@@ -261,7 +261,7 @@ var sites = []Site{
 		// mainUrl:    "https://crevado.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Crunchyroll",
 		// checkBy:    "status_code",
 		rank:       383,
@@ -269,7 +269,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.crunchyroll.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "DEV Community",
 		// checkBy:    "status_code",
 		rank:       5203,
@@ -278,7 +278,7 @@ var sites = []Site{
 		// mainUrl:    "https://dev.to/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "DailyMotion",
 		// checkBy:    "status_code",
 		rank:       120,
@@ -286,7 +286,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.dailymotion.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Designspiration",
 		// checkBy:    "status_code",
 		rank:       26101,
@@ -294,7 +294,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.designspiration.net/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "DeviantART",
 		// checkBy:    "status_code",
 		rank:       222,
@@ -303,7 +303,7 @@ var sites = []Site{
 		// mainUrl:    "https://deviantart.com",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Discogs",
 		// checkBy:    "status_code",
 		rank:       614,
@@ -311,7 +311,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.discogs.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Disqus",
 		// checkBy:    "status_code",
 		rank:       1297,
@@ -319,7 +319,7 @@ var sites = []Site{
 		// mainUrl:    "https://disqus.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Docker Hub",
 		// checkBy:    "status_code",
 		rank:       1993,
@@ -328,7 +328,7 @@ var sites = []Site{
 		probeUrl:  "https://hub.docker.com/v2/users/%s/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Dribbble",
 		// errorMsg:   "Whoops, that page is gone.",
 		// checkBy:    "message",
@@ -338,7 +338,7 @@ var sites = []Site{
 		// mainUrl:    "https://dribbble.com/",
 		checkerFn: bodyChecker("Whoops, that page is gone."),
 	},
-	Site{
+	{
 		name: "EVE Online",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://eveonline.com",
@@ -347,7 +347,7 @@ var sites = []Site{
 		// mainUrl:    "https://eveonline.com",
 		checkerFn: redirectChecker("https://eveonline.com"),
 	},
-	Site{
+	{
 		name: "Ebay",
 		// errorMsg:   "The User ID you entered was not found",
 		// checkBy:    "message",
@@ -356,7 +356,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.ebay.com/",
 		checkerFn: bodyChecker("The User ID you entered was not found"),
 	},
-	Site{
+	{
 		name: "Ello",
 		// errorMsg:   "We couldn't find the page you're looking for",
 		// checkBy:    "message",
@@ -365,7 +365,7 @@ var sites = []Site{
 		// mainUrl:    "https://ello.co/",
 		checkerFn: bodyChecker("We couldn't find the page you're looking for"),
 	},
-	Site{
+	{
 		name: "Etsy",
 		// checkBy:    "status_code",
 		rank:       166,
@@ -373,7 +373,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.etsy.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "EyeEm",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://www.eyeem.com/",
@@ -382,7 +382,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.eyeem.com/",
 		checkerFn: redirectChecker("https://www.eyeem.com/"),
 	},
-	Site{
+	{
 		name: "Facebook",
 		// checkBy: "status_code",
 		rank: 3,
@@ -393,7 +393,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.facebook.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Fandom",
 		// checkBy:    "status_code",
 		rank:       58,
@@ -401,7 +401,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.fandom.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Flickr",
 		// checkBy:    "status_code",
 		rank:       454,
@@ -409,7 +409,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.flickr.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Flipboard",
 		// checkBy:    "status_code",
 		rank:       3603,
@@ -418,7 +418,7 @@ var sites = []Site{
 		// mainUrl:    "https://flipboard.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Foursquare",
 		// checkBy:    "status_code",
 		rank:       2105,
@@ -426,7 +426,7 @@ var sites = []Site{
 		// mainUrl:    "https://foursquare.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Giphy",
 		// checkBy:    "status_code",
 		rank:       472,
@@ -434,7 +434,7 @@ var sites = []Site{
 		// mainUrl:    "https://giphy.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "GitHub",
 		// checkBy: "status_code",
 		rank: 55,
@@ -445,7 +445,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.github.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "GitLab",
 		// errorMsg: "[]",
 		// checkBy:    "message",
@@ -455,7 +455,7 @@ var sites = []Site{
 		probeUrl:  "https://gitlab.com/api/v4/users?username=%s",
 		checkerFn: bodyChecker("Page Not Found"),
 	},
-	Site{
+	{
 		name: "Gitee",
 		// checkBy:    "status_code",
 		rank:       2848,
@@ -463,7 +463,7 @@ var sites = []Site{
 		// mainUrl:    "https://gitee.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "GoodReads",
 		// checkBy:    "status_code",
 		rank:       404,
@@ -471,7 +471,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.goodreads.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Gravatar",
 		// checkBy:    "status_code",
 		rank:       5871,
@@ -479,7 +479,7 @@ var sites = []Site{
 		// mainUrl:    "http://en.gravatar.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Gumroad",
 		// errorMsg:   "Page not found.",
 		// checkBy:    "message",
@@ -488,7 +488,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.gumroad.com/",
 		checkerFn: bodyChecker("Page not found."),
 	},
-	Site{
+	{
 		name: "HackerNews",
 		// errorMsg:   "No such user.",
 		// checkBy:    "message",
@@ -497,7 +497,7 @@ var sites = []Site{
 		// mainUrl:    "https://news.ycombinator.com/",
 		checkerFn: bodyChecker("No such user."),
 	},
-	Site{
+	{
 		name: "HackerOne",
 		// errorMsg:   "Page not found",
 		// checkBy:    "message",
@@ -506,7 +506,7 @@ var sites = []Site{
 		// mainUrl:    "https://hackerone.com/",
 		checkerFn: bodyChecker("Page not found"),
 	},
-	Site{
+	{
 		name: "HackerRank",
 		// errorMsg:   "Something went wrong",
 		// checkBy:    "message",
@@ -515,7 +515,7 @@ var sites = []Site{
 		// mainUrl:    "https://hackerrank.com/",
 		checkerFn: bodyChecker("Something went wrong"),
 	},
-	Site{
+	{
 		name: "House-Mixes.com",
 		// errorMsg:   "Profile Not Found",
 		// checkBy:    "message",
@@ -524,7 +524,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.house-mixes.com/",
 		checkerFn: bodyChecker("Profile Not Found"),
 	},
-	Site{
+	{
 		name: "Houzz",
 		// errorMsg:   "The page you requested was not found.",
 		// checkBy:    "message",
@@ -533,7 +533,7 @@ var sites = []Site{
 		// mainUrl:    "https://houzz.com/",
 		checkerFn: bodyChecker("The page you requested was not found."),
 	},
-	Site{
+	{
 		name: "HubPages",
 		// checkBy:    "status_code",
 		rank:       9531,
@@ -541,7 +541,7 @@ var sites = []Site{
 		// mainUrl:    "https://hubpages.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "IFTTT",
 		// errorMsg: "The requested page or file does not exist",
 		// checkBy:    "message",
@@ -550,7 +550,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.ifttt.com/",
 		checkerFn: bodyChecker("The requested page or file does not exist"),
 	},
-	Site{
+	{
 		name: "ImageShack",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://imageshack.us/",
@@ -559,7 +559,7 @@ var sites = []Site{
 		// mainUrl:    "https://imageshack.us/",
 		checkerFn: redirectChecker("https://imageshack.us/"),
 	},
-	Site{
+	{
 		name: "Imgur",
 		// checkBy:    "status_code",
 		rank:       54,
@@ -567,7 +567,7 @@ var sites = []Site{
 		// mainUrl:    "https://imgur.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Instagram",
 		// errorMsg:   "The link you followed may be broken",
 		// checkBy:    "message",
@@ -576,7 +576,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.instagram.com/",
 		checkerFn: bodyChecker("The link you followed may be broken"),
 	},
-	Site{
+	{
 		name: "Instructables",
 		// errorMsg:   "404: We're sorry, things break sometimes",
 		// checkBy:    "message",
@@ -585,7 +585,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.instructables.com/",
 		checkerFn: bodyChecker("404: We're sorry, things break sometimes"),
 	},
-	Site{
+	{
 		name: "Investing.com",
 		// checkBy:    "status_code",
 		rank:       453,
@@ -593,7 +593,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.investing.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Issuu",
 		// checkBy:    "status_code",
 		rank:       569,
@@ -601,7 +601,7 @@ var sites = []Site{
 		// mainUrl:    "https://issuu.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Itch.io",
 		// checkBy:    "status_code",
 		rank:       1999,
@@ -609,7 +609,7 @@ var sites = []Site{
 		// mainUrl:    "https://itch.io/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Jimdo",
 		// checkBy:    "status_code",
 		noPeriod:   "True",
@@ -618,7 +618,7 @@ var sites = []Site{
 		// mainUrl:    "https://jimdosite.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Kaggle",
 		// checkBy:    "status_code",
 		rank:       2758,
@@ -626,7 +626,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.kaggle.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "KanoWorld",
 		// checkBy:    "status_code",
 		rank:       160033,
@@ -634,7 +634,7 @@ var sites = []Site{
 		// mainUrl:    "https://world.kano.me/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Keybase",
 		// checkBy:    "status_code",
 		rank:       78228,
@@ -642,7 +642,7 @@ var sites = []Site{
 		// mainUrl:    "https://keybase.io/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Kik",
 		// errorMsg:   "The page you requested was not found",
 		// checkBy:    "message",
@@ -651,7 +651,7 @@ var sites = []Site{
 		// mainUrl:    "http://kik.me/",
 		checkerFn: bodyChecker("The page you requested was not found"),
 	},
-	Site{
+	{
 		name: "Kongregate",
 		// errorMsg:   "Sorry, no account with that name was found.",
 		// checkBy:    "message",
@@ -661,7 +661,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.kongregate.com/",
 		checkerFn: bodyChecker("Sorry, no account with that name was found."),
 	},
-	Site{
+	{
 		name: "Launchpad",
 		// checkBy:    "status_code",
 		rank:       7887,
@@ -669,7 +669,7 @@ var sites = []Site{
 		// mainUrl:    "https://launchpad.net/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "LeetCode",
 		// checkBy:    "status_code",
 		rank:       2834,
@@ -677,7 +677,7 @@ var sites = []Site{
 		// mainUrl:    "https://leetcode.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Letterboxd",
 		// errorMsg:   "Sorry, we can\u2019t find the page you\u2019ve requested.",
 		// checkBy:    "message",
@@ -686,7 +686,7 @@ var sites = []Site{
 		// mainUrl:    "https://letterboxd.com/",
 		checkerFn: bodyChecker("Sorry, we can\u2019t find the page you\u2019ve requested."),
 	},
-	Site{
+	{
 		name: "LiveJournal",
 		// checkBy:    "status_code",
 		rank:       237,
@@ -695,7 +695,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.livejournal.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Mastodon",
 		// checkBy:    "status_code",
 		rank:       1389227,
@@ -703,7 +703,7 @@ var sites = []Site{
 		// mainUrl:    "https://mstdn.io/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Medium",
 		// checkBy:    "status_code",
 		rank:       119,
@@ -711,7 +711,7 @@ var sites = []Site{
 		// mainUrl:    "https://medium.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "MeetMe",
 		//checkBy:    "response_url",
 		// errorUrl:   "https://www.meetme.com/",
@@ -720,7 +720,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.meetme.com/"
 		checkerFn: redirectChecker("https://www.meetme.com/"),
 	},
-	Site{
+	{
 		name: "MixCloud",
 		// errorMsg:   "Page Not Found",
 		// checkBy:    "message",
@@ -729,7 +729,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.mixcloud.com/",
 		checkerFn: bodyChecker("Page Not Found"),
 	},
-	Site{
+	{
 		name: "MyAnimeList",
 		// checkBy:    "status_code",
 		rank:       487,
@@ -737,7 +737,7 @@ var sites = []Site{
 		// mainUrl:    "https://myanimelist.net/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Myspace",
 		// checkBy:    "status_code",
 		rank:       4638,
@@ -745,7 +745,7 @@ var sites = []Site{
 		// mainUrl:    "https://myspace.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "NameMC (Minecraft.net skins)",
 		// errorMsg:   "Profiles: 0 results",
 		// checkBy:    "message",
@@ -754,7 +754,7 @@ var sites = []Site{
 		// mainUrl:    "https://namemc.com/",
 		checkerFn: bodyChecker("Profiles: 0 results"),
 	},
-	Site{
+	{
 		name: "Newgrounds",
 		// checkBy:    "status_code",
 		rank:       3402,
@@ -763,7 +763,7 @@ var sites = []Site{
 		// mainUrl:    "https://newgrounds.com",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "OK",
 		// checkBy:    "status_code",
 		rank:       63,
@@ -772,7 +772,7 @@ var sites = []Site{
 		// mainUrl:    "https://ok.ru/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Pastebin",
 		// checkBy: "response_url",
 		// errorUrl:   "https://pastebin.com/index",
@@ -781,7 +781,7 @@ var sites = []Site{
 		// mainUrl:    "https://pastebin.com/",
 		checkerFn: redirectChecker("https://pastebin.com/index"),
 	},
-	Site{
+	{
 		name: "Patreon",
 		// checkBy:    "status_code",
 		rank:       243,
@@ -789,7 +789,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.patreon.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Pexels",
 		// errorMsg:   "Ouch, something went wrong!",
 		// checkBy:    "message",
@@ -798,7 +798,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.pexels.com/",
 		checkerFn: bodyChecker("Ouch, something went wrong!"),
 	},
-	Site{
+	{
 		name: "Photobucket",
 		// checkBy:    "status_code",
 		rank:       4037,
@@ -806,7 +806,7 @@ var sites = []Site{
 		// mainUrl:    "https://photobucket.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Pinterest",
 		// checkBy:    "status_code",
 		rank:       73,
@@ -814,7 +814,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.pinterest.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Pixabay",
 		// checkBy:    "status_code",
 		rank:       392,
@@ -822,7 +822,7 @@ var sites = []Site{
 		// mainUrl:    "https://pixabay.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Plug.DJ",
 		// checkBy:    "status_code",
 		rank:       31273,
@@ -830,7 +830,7 @@ var sites = []Site{
 		// mainUrl:    "https://plug.dj/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Pokemon Showdown",
 		// checkBy:    "status_code",
 		rank:       3508,
@@ -838,7 +838,7 @@ var sites = []Site{
 		// mainUrl:    "https://pokemonshowdown.com",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "ProductHunt",
 		// errorMsg:   "Product Hunt is a curation of the best new products",
 		// checkBy:    "message",
@@ -847,7 +847,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.producthunt.com/",
 		checkerFn: bodyChecker("Product Hunt is a curation of the best new products"),
 	},
-	Site{
+	{
 		name: "Quora",
 		// checkBy: "response_url",
 		// errorUrl:   "https://www.quora.com/profile/%s",
@@ -856,7 +856,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.quora.com/",
 		checkerFn: redirectChecker("https://www.quora.com/profile/%s"),
 	},
-	Site{
+	{
 		name: "Rajce.net",
 		// errorMsg:   "410",
 		// checkBy:    "message",
@@ -865,7 +865,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.rajce.idnes.cz/",
 		checkerFn: bodyChecker("410"),
 	},
-	Site{
+	{
 		name: "Rate Your Music",
 		// checkBy:    "status_code",
 		rank:       4200,
@@ -873,7 +873,7 @@ var sites = []Site{
 		// mainUrl:    "https://rateyourmusic.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Reddit",
 		// checkBy:    "status_code",
 		rank:       20,
@@ -881,7 +881,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.reddit.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Repl.it",
 		// errorMsg:   "404",
 		// checkBy:    "message",
@@ -890,7 +890,7 @@ var sites = []Site{
 		// mainUrl:    "https://repl.it/",
 		checkerFn: bodyChecker("404"),
 	},
-	Site{
+	{
 		name: "ResearchGate",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://www.researchgate.net/directory/profiles",
@@ -903,7 +903,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.researchgate.net/",
 		checkerFn: redirectChecker("https://www.researchgate.net/directory/profiles"),
 	},
-	Site{
+	{
 		name: "ReverbNation",
 		// errorMsg:   "Sorry, we couldn't find that page",
 		// checkBy:    "message",
@@ -912,7 +912,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.reverbnation.com/",
 		checkerFn: bodyChecker("Sorry, we couldn't find that page"),
 	},
-	Site{
+	{
 		name: "Roblox",
 		// errorMsg:   "Page cannot be found or no longer exists",
 		// checkBy:    "message",
@@ -921,7 +921,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.roblox.com/",
 		checkerFn: bodyChecker("Page cannot be found or no longer exists"),
 	},
-	Site{
+	{
 		name: "Scribd",
 		// errorMsg:   "Page not found",
 		// checkBy:    "message",
@@ -930,7 +930,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.scribd.com/",
 		checkerFn: bodyChecker("Page not found"),
 	},
-	Site{
+	{
 		name: "Signal",
 		// errorMsg:   "Oops! That page doesn\u2019t exist or is private.",
 		// checkBy:    "message",
@@ -939,7 +939,7 @@ var sites = []Site{
 		// mainUrl:    "https://community.signalusers.org",
 		checkerFn: bodyChecker("Oops! That page doesn\u2019t exist or is private."),
 	},
-	Site{
+	{
 		name: "Slack",
 		// checkBy:    "status_code",
 		rank:       179,
@@ -948,7 +948,7 @@ var sites = []Site{
 		// mainUrl:    "https://slack.com",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "SlideShare",
 		// checkBy:    "status_code",
 		rank:       122,
@@ -956,7 +956,7 @@ var sites = []Site{
 		// mainUrl:    "https://slideshare.net/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Smashcast",
 		// checkBy:    "status_code",
 		rank:       117504,
@@ -964,7 +964,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.smashcast.tv/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "SoundCloud",
 		// checkBy:    "status_code",
 		rank:       90,
@@ -972,7 +972,7 @@ var sites = []Site{
 		// mainUrl:    "https://soundcloud.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "SourceForge",
 		// checkBy:    "status_code",
 		rank:       363,
@@ -980,7 +980,7 @@ var sites = []Site{
 		// mainUrl:    "https://sourceforge.net/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Spotify",
 		// checkBy:    "status_code",
 		rank:       102,
@@ -988,7 +988,7 @@ var sites = []Site{
 		// mainUrl:    "https://open.spotify.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Star Citizen",
 		// checkBy:    "status_code",
 		rank:       8581,
@@ -996,7 +996,7 @@ var sites = []Site{
 		// mainUrl:    "https://robertsspaceindustries.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Steam",
 		// errorMsg: "The specified profile could not be found",
 		// checkBy:    "message",
@@ -1005,7 +1005,7 @@ var sites = []Site{
 		// mainUrl:    "https://steamcommunity.com/",
 		checkerFn: bodyChecker("The specified profile could not be found"),
 	},
-	Site{
+	{
 		name: "SteamGroup",
 		// errorMsg:   "No group could be retrieved for the given URL",
 		// checkBy:    "message",
@@ -1014,7 +1014,7 @@ var sites = []Site{
 		// mainUrl:    "https://steamcommunity.com/",
 		checkerFn: bodyChecker("No group could be retrieved for the given URL"),
 	},
-	Site{
+	{
 		name: "Taringa",
 		// checkBy:    "status_code",
 		rank:       945,
@@ -1022,7 +1022,7 @@ var sites = []Site{
 		// mainUrl:    "https://taringa.net/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Telegram",
 		// errorMsg:   "<meta property=\"twitter:title\" content=\"Telegram: Contact",
 		// checkBy:    "message",
@@ -1031,7 +1031,7 @@ var sites = []Site{
 		// mainUrl:    "https://t.me/",
 		checkerFn: bodyChecker("<meta property=\"twitter:title\" content=\"Telegram: Contact"),
 	},
-	Site{
+	{
 		name: "Tinder",
 		// errorMsg:   "Looking for Someone?",
 		// checkBy:    "message",
@@ -1040,7 +1040,7 @@ var sites = []Site{
 		// mainUrl:    "https://tinder.com/",
 		checkerFn: bodyChecker("Looking for Someone?"),
 	},
-	Site{
+	{
 		name: "TradingView",
 		// checkBy:    "status_code",
 		rank:       515,
@@ -1048,7 +1048,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.tradingview.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Trakt",
 		// checkBy:    "status_code",
 		rank:       4647,
@@ -1056,7 +1056,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.trakt.tv/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Trip",
 		// errorMsg:   "Page not found",
 		// checkBy:    "message",
@@ -1065,7 +1065,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.trip.skyscanner.com/",
 		checkerFn: bodyChecker("Page not found"),
 	},
-	Site{
+	{
 		name: "TripAdvisor",
 		// errorMsg:   "This page is on vacation\u2026",
 		// checkBy:    "message",
@@ -1074,7 +1074,7 @@ var sites = []Site{
 		// mainUrl:    "https://tripadvisor.com/",
 		checkerFn: bodyChecker("This page is on vacation\u2026"),
 	},
-	Site{
+	{
 		name: "Twitch",
 		// checkBy:    "status_code",
 		rank:       25,
@@ -1082,7 +1082,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.twitch.tv/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Twitter",
 		// errorMsg:   "page doesn\u2019t exist",
 		// checkBy:    "message",
@@ -1091,7 +1091,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.twitter.com/",
 		checkerFn: bodyChecker("page doesn\u2019t exist"),
 	},
-	Site{
+	{
 		name: "Unsplash",
 		// checkBy:    "status_code",
 		rank:       519,
@@ -1099,7 +1099,7 @@ var sites = []Site{
 		// mainUrl:    "https://unsplash.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "VK",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://www.quora.com/profile/%s",
@@ -1108,7 +1108,7 @@ var sites = []Site{
 		// mainUrl:    "https://vk.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "VSCO",
 		// checkBy:    "status_code",
 		rank:       3366,
@@ -1116,7 +1116,7 @@ var sites = []Site{
 		// mainUrl:    "https://vsco.co/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Venmo",
 		// checkBy:    "status_code",
 		rank:       5299,
@@ -1124,7 +1124,7 @@ var sites = []Site{
 		// mainUrl:    "https://venmo.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Vimeo",
 		// checkBy:    "status_code",
 		rank:       127,
@@ -1132,7 +1132,7 @@ var sites = []Site{
 		// mainUrl:    "https://vimeo.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Virgool",
 		// checkBy:    "message",
 		// errorMsg:   "۴۰۴",
@@ -1141,7 +1141,7 @@ var sites = []Site{
 		// mainUrl:    "https://virgool.io/",
 		checkerFn: bodyChecker("۴۰۴"),
 	},
-	Site{
+	{
 		name: "VirusTotal",
 		// errorMsg:   "not found",
 		// checkBy:    "message",
@@ -1150,7 +1150,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.virustotal.com/",
 		checkerFn: bodyChecker("not found"),
 	},
-	Site{
+	{
 		name: "Wattpad",
 		// errorMsg:   "userError-404",
 		// checkBy:    "message",
@@ -1159,7 +1159,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.wattpad.com/",
 		checkerFn: bodyChecker("userError-404"),
 	},
-	Site{
+	{
 		name: "We Heart It",
 		// errorMsg:   "Oops! You've landed on a moving target!",
 		// checkBy:    "message",
@@ -1168,7 +1168,7 @@ var sites = []Site{
 		// mainUrl:    "https://weheartit.com/",
 		checkerFn: bodyChecker("Oops! You've landed on a moving target!"),
 	},
-	Site{
+	{
 		name: "WebNode",
 		// checkBy:    "status_code",
 		rank:       17852,
@@ -1176,7 +1176,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.webnode.cz/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "Wikipedia",
 		// errorMsg:   "If a page was recently created here, it may not be visible yet because of a delay in updating the database",
 		// checkBy:    "message",
@@ -1185,7 +1185,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.wikipedia.org/",
 		checkerFn: bodyChecker("If a page was recently created here, it may not be visible yet because of a delay in updating the database"),
 	},
-	Site{
+	{
 		name: "Wix",
 		// checkBy:    "status_code",
 		rank:       402,
@@ -1193,7 +1193,7 @@ var sites = []Site{
 		// mainUrl:    "https://wix.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "WordPress",
 		// checkBy:    "response_url",
 		// errorUrl:   "wordpress.com/typo/?subdomain=",
@@ -1203,7 +1203,7 @@ var sites = []Site{
 		// mainUrl:    "https://wordpress.com",
 		checkerFn: redirectChecker("wordpress.com/typo/?subdomain="),
 	},
-	Site{
+	{
 		name: "YouNow",
 		// errorMsg:   "No users found",
 		// checkBy:    "message",
@@ -1213,7 +1213,7 @@ var sites = []Site{
 		probeUrl:  "https://api.younow.com/php/api/broadcast/info/user=%s/",
 		checkerFn: bodyChecker("No users found"),
 	},
-	Site{
+	{
 		name: "YouPic",
 		// checkBy:    "status_code",
 		rank:       43585,
@@ -1221,7 +1221,7 @@ var sites = []Site{
 		// mainUrl:    "https://youpic.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "YouTube",
 		// errorMsg: "Not Found",
 		// checkBy:    "message",
@@ -1230,7 +1230,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.youtube.com/",
 		checkerFn: bodyChecker("Not Found"),
 	},
-	Site{
+	{
 		name: "Zhihu",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://www.zhihu.com/people/%s",
@@ -1239,7 +1239,7 @@ var sites = []Site{
 		// mainUrl:    "https://www.zhihu.com/",
 		checkerFn: redirectChecker("https://www.zhihu.com/people/%s"),
 	},
-	Site{
+	{
 		name: "boingboing.net",
 		// checkBy:    "status_code",
 		rank:       5301,
@@ -1247,7 +1247,7 @@ var sites = []Site{
 		// mainUrl:    "https://boingboing.net/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "devRant",
 		//checkBy:    "response_url",
 		//errorUrl:   "https://devrant.com/",
@@ -1256,7 +1256,7 @@ var sites = []Site{
 		// mainUrl:    "https://devrant.com/",
 		checkerFn: redirectChecker("https://devrant.com/"),
 	},
-	Site{
+	{
 		name: "gfycat",
 		// checkBy:    "status_code",
 		rank:       230,
@@ -1264,7 +1264,7 @@ var sites = []Site{
 		// mainUrl:    "https://gfycat.com/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "iMGSRC.RU",
 		// checkBy:    "response_url",
 		// errorUrl:   "https://imgsrc.ru/",
@@ -1273,7 +1273,7 @@ var sites = []Site{
 		// mainUrl:    "https://imgsrc.ru/",
 		checkerFn: redirectChecker("https://imgsrc.ru/"),
 	},
-	Site{
+	{
 		name: "last.fm",
 		// checkBy:    "status_code",
 		rank:       1242,
@@ -1281,7 +1281,7 @@ var sites = []Site{
 		// mainUrl:    "https://last.fm/",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "mixer.com",
 		// checkBy:    "status_code",
 		rank:       2145,
@@ -1290,7 +1290,7 @@ var sites = []Site{
 		probeUrl:  "https://mixer.com/api/v1/channels/%s",
 		checkerFn: statusChecker,
 	},
-	Site{
+	{
 		name: "osu!",
 		// checkBy:    "status_code",
 		rank:       1813,
