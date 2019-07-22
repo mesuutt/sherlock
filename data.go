@@ -1298,4 +1298,10 @@ var sites = []Site{
 		// mainUrl:    "https://osu.ppy.sh/",
 		checkerFn: statusChecker,
 	},
+	Site{
+		name:       "Cent",
+		rank:       1813,
+		profileUrl: "https://beta.cent.co/@%s",
+		checkerFn:  bodyChecker("<title>Cent</title>"),
+	},
 }
