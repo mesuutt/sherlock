@@ -1304,4 +1304,10 @@ var sites = []Site{
 		profileUrl: "https://beta.cent.co/@%s",
 		checkerFn:  bodyChecker("<title>Cent</title>"),
 	},
+	Site{
+		name:       "Filmogs",
+		rank:       1813,
+		profileUrl: "https://www.filmo.gs/users/%s",
+		checkerFn:  statusChecker,
+	},
 }
