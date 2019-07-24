@@ -1359,10 +1359,14 @@ var sites = []Site{
 		profileUrl: "https://opencollective.com/%s",
 		checkerFn:  bodyChecker("Open Collective - open your finances to your community"),
 	},
-
 	{
 		name:       "PayPal",
 		profileUrl: "https://www.paypal.me/%s",
 		checkerFn:  bodyChecker("name=\"twitter:title\" content=\"Get your very own PayPal.Me link\""),
+	},
+	{
+		name:       "WordPressOrg",
+		profileUrl: "https://profiles.wordpress.org/%s/",
+		checkerFn:  redirectChecker("https://wordpress.org"),
 	},
 }
