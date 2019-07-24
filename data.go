@@ -1327,4 +1327,10 @@ var sites = []Site{
 		probeUrl:   "https://api.brew.com/api/public/podcast/%s",
 		checkerFn:  statusChecker,
 	},
+	{
+		name:       "BuyMeACoffee",
+		profileUrl: "https://buymeacoff.ee/%s",
+		probeUrl:   "https://www.buymeacoffee.com/%s",
+		checkerFn:  bodyChecker("It returned a 404 error"),
+	},
 }
