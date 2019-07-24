@@ -1354,4 +1354,9 @@ var sites = []Site{
 		profileUrl: "https://%s.tumblr.com/",
 		checkerFn:  statusChecker,
 	},
+	{
+		name:       "OpenCollective",
+		profileUrl: "https://opencollective.com/%s",
+		checkerFn:  bodyChecker("Open Collective - open your finances to your community"),
+	},
 }
