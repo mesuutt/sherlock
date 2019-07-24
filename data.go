@@ -1321,4 +1321,10 @@ var sites = []Site{
 		probeUrl:   "https://trello.com/1/Members/%s",
 		checkerFn:  statusChecker,
 	},
+	{
+		name:       "Brew",
+		profileUrl: "https://www.brew.com/%s",
+		probeUrl:   "https://api.brew.com/api/public/podcast/%s",
+		checkerFn:  statusChecker,
+	},
 }
