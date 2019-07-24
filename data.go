@@ -1349,4 +1349,9 @@ var sites = []Site{
 		profileUrl: "https://www.npmjs.com/~%s",
 		checkerFn:  statusChecker,
 	},
+	{
+		name:       "Tumblr",
+		profileUrl: "https://%s.tumblr.com/",
+		checkerFn:  statusChecker,
+	},
 }
