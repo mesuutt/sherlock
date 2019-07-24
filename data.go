@@ -1312,8 +1312,13 @@ var sites = []Site{
 	},
 	{
 		name:       "Packagist",
-		rank:       1813,
 		profileUrl: "https://packagist.org/packages/%s/",
 		checkerFn:  redirectChecker("/search?q=%s&reason=vendor_not_found"),
+	},
+	{
+		name:       "Trello",
+		profileUrl: "https://trello.com/%s",
+		probeUrl:   "https://trello.com/1/Members/%s",
+		checkerFn:  statusChecker,
 	},
 }
