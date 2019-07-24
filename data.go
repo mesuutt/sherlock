@@ -1333,4 +1333,20 @@ var sites = []Site{
 		probeUrl:   "https://www.buymeacoffee.com/%s",
 		checkerFn:  bodyChecker("It returned a 404 error"),
 	},
+
+	{
+		name:       "TikTok",
+		profileUrl: "https://www.tiktok.com/@%s",
+		checkerFn:  bodyChecker("Couldn&#x27;t find this account"),
+	},
+	{
+		name:       "NPM-Package",
+		profileUrl: "https://www.npmjs.com/package/%s",
+		checkerFn:  statusChecker,
+	},
+	{
+		name:       "NPM",
+		profileUrl: "https://www.npmjs.com/~%s",
+		checkerFn:  statusChecker,
+	},
 }
