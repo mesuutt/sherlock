@@ -1369,4 +1369,9 @@ var sites = []Site{
 		profileUrl: "https://profiles.wordpress.org/%s/",
 		checkerFn:  redirectChecker("https://wordpress.org"),
 	},
+	{
+		name:       "PlayStore",
+		profileUrl: "https://play.google.com/store/apps/developer?id=%s",
+		checkerFn:  statusChecker,
+	},
 }
