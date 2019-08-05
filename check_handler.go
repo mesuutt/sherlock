@@ -98,15 +98,14 @@ func redirectChecker(redirectUrlTemplate string) checkerFunc {
 			checker.results <- check
 			return
 		}
-
-		var errorUrl string
+		var errorURL string
 		if strings.Contains(redirectUrlTemplate, "%s") {
-			errorUrl = fmt.Sprintf(redirectUrlTemplate, check.username)
+			errorURL = fmt.Sprintf(redirectUrlTemplate, check.username)
 		} else {
-			errorUrl = redirectUrlTemplate
+			errorURL = redirectUrlTemplate
 		}
 
-		check.found = !strings.Contains(res.Header.Get("Location"), errorUrl)
+		check.found = !strings.Contains(res.Header.Get("Location"), errorURL)
 
 		checker.results <- check
 	}
