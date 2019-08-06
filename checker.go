@@ -31,17 +31,17 @@ type Checker struct {
 	conf     *CheckConfig
 }
 
-// ProfileUrl return profile url of username
-func (c *Check) ProfileUrl() string {
-	return fmt.Sprintf(c.site.profileUrl, c.username)
+// ProfileURL return profile url of username
+func (c *Check) ProfileURL() string {
+	return fmt.Sprintf(c.site.profileURL, c.username)
 }
 
-// ProbeUrl return page which using for check existance of username
-func (c *Check) ProbeUrl() string {
-	if c.site.probeUrl != "" {
-		return fmt.Sprintf(c.site.probeUrl, c.username)
+// ProbeURL return page which using for check existance of username
+func (c *Check) ProbeURL() string {
+	if c.site.probeURL != "" {
+		return fmt.Sprintf(c.site.probeURL, c.username)
 	}
-	return fmt.Sprintf(c.site.profileUrl, c.username)
+	return fmt.Sprintf(c.site.profileURL, c.username)
 
 }
 
@@ -58,6 +58,7 @@ func newChecker(username string, sites *[]Site, proxyURL *url.URL, verbose bool)
 	}
 }
 
+// Check start checker goroutine for site
 func (c *Checker) Check() {
 	for i := 0; len(c.sites) > i; i++ {
 		c.wg.Add(1)
@@ -72,6 +73,7 @@ func (c *Checker) Check() {
 	close(c.results)
 }
 
+// Results gives check result channel
 func (c *Checker) Results() resultChan {
 	return c.results
 }

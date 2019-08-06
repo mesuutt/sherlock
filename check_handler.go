@@ -16,7 +16,7 @@ func statusChecker(checker *Checker, check *Check) {
 	// res, err := http.Get(check.ProbeUrl())
 	var client = checker.CreateClient()
 
-	req, err := http.NewRequest("GET", check.ProbeUrl(), nil)
+	req, err := http.NewRequest("GET", check.ProbeURL(), nil)
 	req.Header.Set("User-Agent", userAgent)
 	res, err := client.Do(req)
 
@@ -43,7 +43,7 @@ func bodyChecker(searchText string) checkerFunc {
 	return func(checker *Checker, check *Check) {
 		// res, err := http.Get(check.ProbeUrl())
 		var client = checker.CreateClient()
-		req, err := http.NewRequest("GET", check.ProbeUrl(), nil)
+		req, err := http.NewRequest("GET", check.ProbeURL(), nil)
 		req.Header.Set("User-Agent", userAgent)
 		res, err := client.Do(req)
 
@@ -82,7 +82,7 @@ func redirectChecker(redirectUrlTemplate string) checkerFunc {
 			return http.ErrUseLastResponse
 		}
 
-		req, err := http.NewRequest("GET", check.ProbeUrl(), nil)
+		req, err := http.NewRequest("GET", check.ProbeURL(), nil)
 		req.Header.Set("User-Agent", userAgent)
 		res, err := client.Do(req)
 
