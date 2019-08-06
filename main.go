@@ -54,14 +54,14 @@ func main() {
 
 				if c.failed {
 					if checker.conf.Verbose {
-						fmt.Printf("[%s] %s: %s (%s\n", boldRed("?"), boldRed(c.site.name), c.ProfileUrl(), red(fmt.Sprintf("Error Message: %v", c.errorMsg)))
+						fmt.Printf("[%s] %s: %s (%s\n", boldRed("?"), boldRed(c.site.name), c.ProfileURL(), red(fmt.Sprintf("Error Message: %v", c.errorMsg)))
 
 					} else {
-						fmt.Printf("[%s] %s: %s (%s)\n", boldRed("?"), boldRed(c.site.name), c.ProfileUrl(), red("Check failed. Use -v flag for verbose mode"))
+						fmt.Printf("[%s] %s: %s (%s)\n", boldRed("?"), boldRed(c.site.name), c.ProfileURL(), red("Check failed. Use -v flag for verbose mode"))
 					}
 				} else {
 					if c.found {
-						fmt.Printf("[%s] %s: %s\n", boldGreen("+"), boldGreen(c.site.name), c.ProfileUrl())
+						fmt.Printf("[%s] %s: %s\n", boldGreen("+"), boldGreen(c.site.name), c.ProfileURL())
 					} else {
 						if c.errorMsg != "" {
 							fmt.Printf("[%s] %s: %s\n", boldRed("-"), boldGreen(c.site.name), boldYellow(c.errorMsg))
